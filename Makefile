@@ -1,11 +1,17 @@
 all: build/main.pdf
 
 # hier Python-Skripte:
-#build/plot.pdf: plot.py matplotlibrc header-matplotlib.tex | build
-#	TEXINPUTS=$$(pwd): python plot.py
+build/plot_schall_impuls.pdf: plot_schall_impuls.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python plot_schall_impuls.py
+
+build/plot_schall_durch.pdf: plot_schall_durch.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python plot_schall_durch.py
+
+build/plot_daempfung.pdf: plot_daempfung.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python plot_daempfung.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot.pdf
+build/main.pdf: build/plot_schall_impuls.pdf build/plot_schall_durch.pdf build/plot_daempfung.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

@@ -1,0 +1,9 @@
+ 
+Material    ;ak. Impedanz   ;Schallges.
+Luft (20°C) ;413.6          ;343
+dest. Wasser;1.480*10^6     ;1483
+Blut        ;1.6*10^6       ;1570
+Knochen     ;6*10^6         ;3500
+Acryl       ;3,2*10^6       ;2670 bis 2760
+
+http://www.karldeutsch.de/KD_GENERAL_Tabelle_AcMatSpec_DE_M1.html
