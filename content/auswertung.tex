@@ -1,6 +1,16 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Bestimmung der Schallgeschwindigkeit}
 
+Zur Berechnung der Schallgeschwindigkeit $c_\text{Schall}$ mittels der Impuls-Echo-Methode werden die Daten in \autoref{tab:impuls-echo} geplottet.
+Über diese Werte wird ein linearer Fit der Form
+
+\begin{center}
+    $d = c_\text{Schall,1} \cdot t + x_{0,1}$
+\end{center}
+
+gelegt. Dabei ist zu beachten, dass $d$ den doppelten Betrag der Länge der Zylinder hat, da der Schall erst zu der Rückwand dieser und dann zurück zum Detektor laufen muss.
+Der entstehende Graph ist in \autoref{fig:plot_schall_impuls} zu sehen.
 
 \input{../content/impuls-echo.tex}
 
@@ -11,19 +21,29 @@
     \label{fig:plot_schall_impuls}
 \end{figure}
 
+Zur Berechnung der Koeffizienten werden die letzten beiden Werte nicht betrachtet, da diese eine ungewöhnliche und sehr große Abweichung von der Geraden aufweisen.
+Somit werden jene mittels Python 3.7.0 als
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\textwidth]{build/plot_daempfung.pdf}
-    \caption{Plot und Fit der Messwerte der Impuls-Echo-Methode zur Bestimmung der akustischen Impedanz, wobei drei Messwerte nicht betrachtet werden.}
-    \label{fig:plot_daempfung}
-\end{figure}
+\begin{center}
+    $c_\text{Schall,1} = (0,271 \pm 0,002) \frac{\symup{cm}}{\symup{µs}} = (2,71 \ pm 0,02) \cdot 10^{3} \frac{\symup{m}}{\symup{s}}$
+    
+    $x_{0,1} = (0,1 \pm 0,1)$ cm
+\end{center}
 
+ermittelt.
 
-
-
+%%%%%%%%%%%%%%%%%%%%%
 
 \input{../content/durchschall.tex}
+
+Zur Bestimmung der Schallgeschwindigkeit mit der Durchschall-Methode wird analog zu der Impuls-Echo-Methode vorgegangen:
+Es werden die Daten aus \autoref{tab:durchschall} geplottet und über diese wird erneut ein linearer Fit der Form
+
+\begin{center}
+    $d = c_\text{Schall,2} \cdot t + x_{0,2}$
+\end{center}
+
+Hier entspricht $d$ genau der Länge der Zylinder. Der entsprechende Plot ist in \autoref{fig:plot_schall_durch} zu finden.
 
 \begin{figure}
     \centering
@@ -32,4 +52,82 @@
     \label{fig:plot_schall_durch}
 \end{figure}
 
+Ebenfalls mittels Python 3.7.0 werden die Koeffizienten ermittelt:
+
+\begin{center}
+    $c_\text{Schall,2} = (0,271 \pm 0,003) \frac{\symup{cm}}{\symup{µs}} = (2,71 \ pm 0,03) \cdot 10^{3} \frac{\symup{m}}{\symup{s}}$
+    
+    $x_{0,2} = (-0,21 \pm 0,08)$ cm.
+\end{center}
+
+
+\subsection{Bestimmung des Absorptionskoeffizienten}
+
+Zunächst wird aus GLEICHUNG die akustische Impedanz als
+
+\begin{center}
+    $Z \approx 3,28 \cdot 10^{6}$ $\frac{\symup{kg}}{\symup{s}\symup{m}^2}$
+\end{center}GLE
+
+ermittelt. Dazu wird $\rho = 1190$ $\frac{\symup{kg}}{\symup{m}^3}$ \cite{pmma} genutzt. 
+Mit dem Wert für die akustische Impedanz von Luft $Z_\text{Luft} \approx 413$ $\frac{\symup{kg}}{\symup{m}^3}$\cite{akImLuft} lässt sich anhand von GLEICHUNG der Reflexionskoeffizient $R \approx 1$ bestimmen.
+Daher wird im Folgenden davon ausgegangen, dass der gesamte Schall reflektiert wird.
+
+Zur Bestimmung des Absorptionskoeffizienten $\alpha$ werden die Werte aus \autoref{tab:impuls-echo} geplottet.
+Dabei wird die $U(x)$-Achse logarithmisiert, um so eine Gerade zu erhalten.
+Über diese wird ein Fit der Form
+
+\begin{center}
+    $\ln \bigg( \frac{U}{1 \symup{V}} \bigg) = \ln \bigg( \frac{U_0}{1 \symup{V}} \bigg) - \alpha x$
+\end{center}
+
+gelegt. Erneut ist darauf zu achten, dass $d$ den doppelten Betrag der Länge der Zylinder hat.
+Der so entstehende Plot ist in \autoref{fig:plot_daempfung} zu sehen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{build/plot_daempfung.pdf}
+    \caption{Plot und Fit der Messwerte der Impuls-Echo-Methode zur Bestimmung des Absorptionskoeffizienten, wobei zwei Messwerte nicht betrachtet werden.}
+    \label{fig:plot_daempfung}
+\end{figure}
+
+Aufgrund starker Abweichungen von zwei Werten, werden diese in der Ausgleichsrechnung nicht näher betrachtet.
+Somit ermitteln sich die Werte mittels Python 3.7.0 als
+
+\begin{center}
+    $\ln \bigg( \frac{U_0}{1\symup{V}} \bigg) = (0,6 \pm 0,1)$
+
+    $\alpha = (0,031 \pm 0,005) \frac{1}{\symup{cm}} = (3,1 \pm 0,5) \frac{1}{\symup{m}}$
+\end{center}
+
+bestimmt.
+
+\subsection{Biometrische Abmessung eines Augenmodells}
+
+Bei der Vermessung des Augenmodells werden mehrere ausgeprägte Peaks gemessen. Die Daten sind in \autoref{tab:auge} zu finden.
+Der nullte bei $t \approx 0$ s entseht an der Grenzfläche Sonde-Hornhaut. Die weiteren relevanten Peaks sind Peak Nummer 1 (Augenkammer-Linse), 2 (Linse-Glaskörper) und 5 (Retina).
+Peak Nummer 3 und 4 entstehen durch Reflexionen im Auge selbst, beispielsweise durch zweimalige Reflexionen in der Linse selbst.
+
 \input{../content/auge.tex}
+
+Die Schallgeschwindigkeiten innerhalb der verschiedenen Materialien variieren. Diese werden aus der Literatur entnommen:
+
+\begin{center}
+    $c_\text{Augenkammer} = 1532$ $\frac{\symup{m}}{\symup{s}}$\cite[63]{augeZahlen}
+
+    $c_\text{Linse} = 2500$ $\frac{\symup{m}}{\symup{s}}$ \cite{US1}
+
+    $c_\text{Glaskörper} = 1410$ $\frac{\symup{m}}{\symup{s}}$ \cite{US1}.
+\end{center}
+
+Damit lassen sich die Distanzen berechnen wie folgt bestimmen:
+
+\begin{center}
+    Hornhaut - Anfang Linse: $s_1 = \frac{1}{2} c_\text{Augenkammer} t_1 = 1,21$ cm,
+
+    Hornhaut - Ende Linse: $s_2 = \frac{1}{2} c_\text{Linse} + s_1 = 4,14$ cm
+
+    und
+
+    Hornhaut - Retina: $s_3 = \frac{1}{2} c_text{Glaskörper} + s_2 = 9,29$ cm.
+\end{center}

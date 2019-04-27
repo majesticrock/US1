@@ -29,7 +29,7 @@ popt, pcov = curve_fit(func, xdata, ydata)
 plt.plot(x_line, func(x_line, *popt), "b-", label="Fit")
 
 print(popt)
-print(np.sqrt(pcov))
+print(np.sqrt(np.diag(pcov)))
 
 #$c_\text{Schall} = (0,271 \pm 0,003) \frac{\symup{cm}}{\symup{µs}} = (2,71 \ pm 0,03) \cdot 10^{3} \frac{\symup{m}}{\symup{s}}$
 #$y_0 = (-0,21 \pm 0,08)$ cm
