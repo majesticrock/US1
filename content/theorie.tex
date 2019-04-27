@@ -1,2 +1,88 @@
+\section{Zielsetzung}
+    Ziel dieses Versuches ist es die Schallgeschwindigkeit in Acryl mittels einer Ultraschallmessung zu bestimmen. Außerdem wird ein Augenmodell
+    mittels Ultraschall vermessen.
 \section{Theorie}
 \label{sec:Theorie}
+    Schallwellen sind longitudinale Wellen, welche sich durch Druckschwankungen in Medien fortbewegen. Diese Schwankung kann durch
+    \begin{equation}
+    \label{eqn:welle}
+        p(x,t) = p_{\symup{0}} + v_{\symup{0}} Z \cos{\omega t - k x}
+    \end{equation}
+    beschrieben werden, wobei 
+    \begin{equation}
+    \label{eqn:impedanz}
+        Z = \rho \cdot c
+    \end{equation}
+    die akustische Impedanz ist. Dabei ist $\rho$ die 
+    Dichte des Mediums durch das sich der Schall bewegt
+    und $c$ die zugehörige Schallgeschwindigkeit des
+    Materials. Hieran wird deutlich, dass Schallwellen im 
+    Vergleich zu elektromagnetischen Wellen materialabhängig ist.
+    Andere Eigenschaften elektromagnetischer Wellen, wie zum Beispiel
+    Reflexion und Beugung werden aber auch von Schallwellen 
+    erfüllt. Die Schallgeschwindigkeit in Festkörpern
+    ist über das Elastizitätsmodul $E$ und die Dichte 
+    $\rho$ zu 
+    \begin{equation}
+    \label{eqn:schallgeschw_festkoerper}
+        c_{\symup{Fe}} = \sqrt{\frac{E}{\rho}}
+    \end{equation}
+    definiert. Zu Beachten ist hier aber, dass sich der 
+    Schall in Festkörpern nicht nur longitudinal, sondern 
+    als Folge von Schubspannungen auch transversal ausbreitet.
+    Des Weiteren nimmt die Intensität $I_{\symup{0}}$ des Schalls bei Ausbreitung
+    exponentiell in der Strecke $x$ ab:  
+    \begin{equation}
+    \label{eqn:abnahme}     
+        I(x) = I_{\symup{0}} \cdot e^{-\alpha x}.
+    \end{equation}
+    Dabei ist $\alpha$ der Absorptionskoeffizient
+    der Schallamplitude. 
+    Beim Auftreffen des Schalls an einer Grenzfläche wird 
+    ein Teil des Schalls reflektiert. Es wird daher ein 
+    Reflexionskoeffizient $R$ als das Verhältnis von 
+    reflektierter zu eintreffender Schallintensität definiert.
+    Der Reflexionskoeffizient
+    \begin{equation}
+    \label{eqn:reflexionskoeffizient}
+    R = \Bigr ( \frac{Z_{\symup{1}} - Z_{\symup{2}}} {Z_{\symup{1}} + Z_{\symup{2}}}   \Bigl)^2
+    \end{equation}
+    ist dabei Abhängig von den akustischen Impedanzen $Z_{\symup{i}}$
+    der beiden angrenzenden Materialien.
+    Des Weiteren ist der transmittierte Anteil $T$ durch
+    \begin{equation}
+    \label{eqn:transmission}
+        T = 1 - R 
+    \end{equation}
+    bestimmt.
+
+    Zur Erzeugung von Ultraschall kann der sogenannte piezo-elektrische Effekt 
+    genutzt werden. Dazu wird ein piezoelektrischer Kristall in ein elektrisches 
+    Wechselfeld gebracht und wenn eine polare Achse des Kristalls in Richtung 
+    des elektrischen Feldes zeigt, wird dieser dadurch zu Schwingungen angeregt,
+    wobei Ultraschall abgestrahlt wird. Falls die Ausgangsfrequenz mit der 
+    Eigenfrequenz des Kristalls übereinstimmt kommt es zur Resonanz und es können
+    hohe Energiedichten erzeugt werden. Umgekehrt kann der Kristall auch als 
+    Empfänger für Ultraschall genutzt werden. Dabei treffen Schallwellen auf den 
+    Kristall und regen diesen zu Schwingungen an, die dann aufgenommen werden 
+    können. 
+    Allgemein wird hier zwischen zwei Arten der Ultraschallmessung unterschieden.
+    Es gibt einmal das Durchschallungsverfahren, bei dem mit einem 
+    Ultraschallsender ein Schallimpuls ausgesendet wird und am anderen 
+    Ende der Probe durch einen Empfänger gemessenw wird. Falls eine Fehlstelle
+    in der Probe existiert so wird das durch eine geringere Intensität deutlich.
+    Mit dieser Methode ist es allerdings nicht möglich Aussagen über 
+    den Ort der Fehlstelle zu treffen.
+    Die zweite Methode ist das Impuls-Echo-Verfahren, bei dem 
+    der Ultraschallsender auch als Empfänger genutzt wird. 
+    Der ausgesendete Ultraschallimpuls wird an Grenzflächen reflektiert
+    und vom Empfänger aufgenommen. Diese Methode erlaubt anderes als die vorherige 
+    Aussagen über die Position von Fehlstellen zu treffen.
+    Wenn die Schallgeschwindigkeit im Material bekannt ist kann die Position der 
+    Fehlstelle über 
+    \begin{equation}
+    \label{eqn:fehlstelle}
+        s=\frac{1}{2} c t
+    \end{equation}
+    bestimmt werden.
+
