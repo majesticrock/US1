@@ -51,7 +51,7 @@ print(np.sqrt(np.diag(pcov)))
 #$\alpha = (0,031 \pm 0,005) \frac{1}{\symup{cm}} = (3,1 \pm 0,5) \frac{1}{\symup{m}}$
 
 plt.xlabel(r"Distanz $d$ / cm")
-plt.ylabel(r"$\ln \bigg( \frac{U_0}{1\symup{V}} \bigg)$")
+plt.ylabel(r"$\ln \bigg( \frac{U}{1\symup{V}} \bigg)$")
 plt.legend(loc="center left")
 plt.tight_layout()
 plt.savefig("build/plot_daempfung.pdf")
