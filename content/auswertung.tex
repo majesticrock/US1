@@ -5,9 +5,9 @@
 Zur Berechnung der Schallgeschwindigkeit $c_\text{Schall}$ mittels der Impuls-Echo-Methode werden die Daten in \autoref{tab:impuls-echo} geplottet.
 Über diese Werte wird ein linearer Fit der Form
 
-\begin{center}
-    $d = c_\text{Schall,1} \cdot t + x_{0,1}$
-\end{center}
+\begin{equation}
+    d = c_\text{Schall,1} \cdot t + x_{0,1}
+\end{equation}
 
 gelegt. Dabei ist zu beachten, dass $d$ den doppelten Betrag der Länge der Zylinder hat, da der Schall erst zu der Rückwand dieser und dann zurück zum Detektor laufen muss.
 Der entstehende Graph ist in \autoref{fig:plot_schall_impuls} zu sehen.
@@ -39,9 +39,9 @@ ermittelt.
 Zur Bestimmung der Schallgeschwindigkeit mit der Durchschall-Methode wird analog zu der Impuls-Echo-Methode vorgegangen:
 Es werden die Daten aus \autoref{tab:durchschall} geplottet und über diese wird erneut ein linearer Fit der Form
 
-\begin{center}
-    $d = c_\text{Schall,2} \cdot t + x_{0,2}$
-\end{center}
+\begin{equation}
+    d = c_\text{Schall,2} \cdot t + x_{0,2}
+\end{equation}
 
 Hier entspricht $d$ genau der Länge der Zylinder. Der entsprechende Plot ist in \autoref{fig:plot_schall_durch} zu finden.
 
@@ -63,15 +63,15 @@ Ebenfalls mittels Python 3.7.0 werden die Koeffizienten ermittelt:
 
 \subsection{Bestimmung des Absorptionskoeffizienten}
 
-Zunächst wird aus \eqref{eqn:impedanz} die akustische Impedanz als
-
-\begin{center}
-    $Z \approx 3,28 \cdot 10^{6}$ $\frac{\symup{kg}}{\symup{s}\symup{m}^2}$
-\end{center}
-
-ermittelt. Dazu wird $\rho = 1190$ $\frac{\symup{kg}}{\symup{m}^3}$ \cite{pmma} genutzt. 
-Mit dem Wert für die akustische Impedanz von Luft $Z_\text{Luft} \approx 413$ $\frac{\symup{kg}}{\symup{m}^3}$\cite{akImLuft} lässt sich anhand von \eqref{eqn:reflexionskoeffizient} der Reflexionskoeffizient $R \approx 1$ bestimmen.
-Daher wird im Folgenden davon ausgegangen, dass der gesamte Schall reflektiert wird.
+%Zunächst wird aus \eqref{eqn:impedanz} die akustische Impedanz als
+%
+%\begin{center}
+%    $Z \approx 3,28 \cdot 10^{6}$ $\frac{\symup{kg}}{\symup{s}\symup{m}^2}$
+%\end{center}
+%
+%ermittelt. Dazu wird $\rho = 1190$ $\frac{\symup{kg}}{\symup{m}^3}$ \cite{pmma} genutzt. 
+%Mit dem Wert für die akustische Impedanz von Luft $Z_\text{Luft} \approx 413$ $\frac{\symup{kg}}{\symup{m}^3}$\cite{akImLuft} lässt sich anhand von \eqref{eqn:reflexionskoeffizient} der Reflexionskoeffizient $R \approx 1$ bestimmen.
+%Daher wird im Folgenden davon ausgegangen, dass der gesamte Schall reflektiert wird.
 
 Zur Bestimmung des Absorptionskoeffizienten $\alpha$ werden die Werte aus \autoref{tab:impuls-echo} geplottet.
 Dabei wird die $U(x)$-Achse logarithmisiert, um so eine Gerade zu erhalten.
@@ -91,7 +91,7 @@ Der so entstehende Plot ist in \autoref{fig:plot_daempfung} zu sehen.
     \label{fig:plot_daempfung}
 \end{figure}
 
-Aufgrund starker Abweichungen von zwei Werten, werden diese in der Ausgleichsrechnung nicht näher betrachtet.
+Aufgrund starker Abweichungen der Werte bei $d = 10,21$ cm und $d = 16,10$, werden diese in der Ausgleichsrechnung nicht näher betrachtet.
 Somit ermitteln sich die Werte mittels Python 3.7.0 als
 
 \begin{center}
@@ -105,7 +105,7 @@ bestimmt.
 \subsection{Biometrische Abmessung eines Augenmodells}
 
 Bei der Vermessung des Augenmodells werden mehrere ausgeprägte Peaks gemessen. Die Daten sind in \autoref{tab:auge} zu finden.
-Der nullte bei $t \approx 0$ s entseht an der Grenzfläche Sonde-Hornhaut. Die weiteren relevanten Peaks sind Peak Nummer 1 (Augenkammer-Linse), 2 (Linse-Glaskörper) und 5 (Retina).
+Der nullte bei $t \approx 0$ s entsteht an der Grenzfläche Sonde-Hornhaut. Die weiteren relevanten Peaks sind Peak Nummer 1 (Augenkammer-Linse), 2 (Linse-Glaskörper) und 5 (Retina).
 Peak Nummer 3 und 4 entstehen durch Reflexionen im Auge selbst, beispielsweise durch zweimalige Reflexionen in der Linse selbst.
 
 \input{../content/auge.tex}
